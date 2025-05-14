@@ -3,6 +3,29 @@ import React from "react";
 export const HomePage: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
+  const cardData = [
+  {
+    title: "Acompanhe os últimos jogos do Verdão e seus resultados",
+    description: "Fique por dentro dos resultados das partidas mais recentes do Palmeiras, com detalhes e estatísticas.",
+  },
+    {
+      title: "Acompanhe o resultado das competições",
+      description: "Veja como o Palmeiras está se saindo nas competições atuais, com tabelas e classificações atualizadas.",
+    },
+    {
+      title: "Veja o elenco atualizado",
+      description: "Conheça os jogadores que fazem parte do elenco do Palmeiras, com informações detalhadas sobre cada atleta.",
+    },
+    {
+      title: "História do Palmeiras",
+      description: "Descubra a rica história do Palmeiras, desde sua fundação até os títulos mais importantes conquistados.",
+    },
+    {
+      title: "Próximos jogos",
+      description: "Confira a agenda dos próximos jogos do Palmeiras e prepare-se para torcer pelo Verdão.",
+    },
+  ];
+
   return (
     <div className="flex flex-col items-center bg-gray-100 min-h-[95vh] p-4">
       <div className="mb-6">
@@ -30,38 +53,30 @@ export const HomePage: React.FC = () => {
         Resultado da última partida
       </button>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-        <div className="card bg-white p-4 rounded shadow hover:shadow-lg transform hover:-translate-y-1 transition">
-          Card 1
-        </div>
-        <div className="card bg-white p-4 rounded shadow hover:shadow-lg transform hover:-translate-y-1 transition">
-          Card 2
-        </div>
-        <div className="card bg-white p-4 rounded shadow hover:shadow-lg transform hover:-translate-y-1 transition">
-          Card 3
-        </div>
+      <div className="grid grid-cols-1 gap-4 w-full max-w-6xl my-16 px-4 sm:grid-cols-2 lg:grid-cols-5">
+        {cardData.map((card, index) => (
+          <div
+            key={index}
+            className="bg-white border border-green-700 p-6 rounded-lg shadow-lg hover:transform hover:-translate-y-1 
+            hover:border-green-500 transition relative overflow-hidden"
+          >
+            <div className="absolute top-0 left-0 w-1 h-8 bg-green-700"></div>
+            <h3 className="text-lg font-semibold text-green-700 mb-3">
+              {card.title}
+            </h3>
+            <p className="text-sm text-gray-700">{card.description}</p>
+          </div>
+        ))}
       </div>
 
-      {/* Patrocinadores */}
       <div className="flex flex-wrap justify-center items-center gap-4 mb-8">
-        <img
-          src="https://via.placeholder.com/100x50"
-          alt="Patrocinador 1"
-          className="w-24 h-auto"
-        />
-        <img
-          src="https://via.placeholder.com/100x50"
-          alt="Patrocinador 2"
-          className="w-24 h-auto"
-        />
-        <img
-          src="https://via.placeholder.com/100x50"
-          alt="Patrocinador 3"
-          className="w-24 h-auto"
-        />
+        <span className="text-green-700 font-bold">SportingBet</span>
+          <span className="w-2 h-2 bg-green-700 rounded-full"></span>
+        <span className="text-green-700 font-bold">Puma</span>
+          <span className="w-2 h-2 bg-green-700 rounded-full"></span>
+        <span className="text-green-700 font-bold">UNIASSELVI </span>
       </div>
 
-      {/* Footer */}
       <footer className="text-center text-gray-600 mt-auto">
         Palmeiras © {currentYear}
       </footer>

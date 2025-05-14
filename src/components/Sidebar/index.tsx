@@ -53,9 +53,9 @@ export function Sidebar({ isExpanded, setIsExpanded }: SidebarProps) {
                     {navItems.map((item, index) => (
                         <li
                             key={index}
-                            className={`flex items-center px-4 py-2 cursor-pointer ${
+                            className={`flex items-center px-4 py-2 cursor-pointer transition-colors duration-300 ${
                                 location.pathname === item.path
-                                    ? 'border-l-4 border-green-500 bg-green-100'
+                                    ? 'border-l-4 border-green-500 bg-emerald-100'
                                     : 'hover:bg-green-100'
                             }`}
                         >
