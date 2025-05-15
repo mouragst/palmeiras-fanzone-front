@@ -24,7 +24,7 @@ export function Sidebar({ isExpanded, setIsExpanded }: SidebarProps) {
     return (
         <div
             className={`fixed inset-y-0 left-0 transform ${
-                isExpanded ? 'w-64' : 'w-16'
+                isExpanded ? 'w-64' : 'w-22'
             } bg-white text-green-700 transition-all duration-300 flex flex-col 
             justify-between border-r border-green-300`
         }
@@ -36,14 +36,14 @@ export function Sidebar({ isExpanded, setIsExpanded }: SidebarProps) {
                 <div className="flex-1 bg-red-500 border-b border-gray-200"></div>
             </div>
 
-            <div className="flex flex-col items-center justify-start p-4 space-y-2">
+            <div className="flex items-center justify-start p-4 space-x-2">
                 <img
                     src="https://crests.football-data.org/1769.png"
                     alt="Logo"
                     className="h-10 w-10"
                 />
                 {isExpanded && (
-                    <h1 className="text-lg font-bold text-green-700">Palmeiras Zone</h1>
+                    <h1 className="text-lg font-bold text-green-700 ml-3">Central Palmeiras</h1>
                 )}
             </div>
 
@@ -51,16 +51,18 @@ export function Sidebar({ isExpanded, setIsExpanded }: SidebarProps) {
             <nav className="flex-1 overflow-y-auto">
                 <ul className="space-y-2 mt-4">
                     {navItems.map((item, index) => (
-                        <li
-                            key={index}
-                            className={`flex items-center px-4 py-2 cursor-pointer transition-colors duration-300 ${
-                                location.pathname === item.path
-                                    ? 'border-l-4 border-green-500 bg-emerald-100'
-                                    : 'hover:bg-green-100'
-                            }`}
-                        >
-                            {item.icon}
-                            {isExpanded && <span className="ml-3">{item.label}</span>}
+                        <li key={index}>
+                            <a
+                                href={item.path}
+                                className={`flex items-center px-4 py-2 cursor-pointer transition-colors duration-300 ${
+                                    location.pathname === item.path
+                                        ? 'border-l-4 border-green-500 bg-emerald-100'
+                                        : 'hover:bg-green-100'
+                                }`}
+                            >
+                                {item.icon}
+                                {isExpanded && <span className="ml-3">{item.label}</span>}
+                            </a>
                         </li>
                     ))}
                 </ul>

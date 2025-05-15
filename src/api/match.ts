@@ -12,3 +12,23 @@ export const getLastMatch = async () => {
         throw error;
     }
 }
+
+export const getAllMatches = async () => {
+    try {
+        const response = await axios.get(`${apiUrl}/matches`,);
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching all matches data:", error);
+        throw error;
+    }
+}
+
+export const getMatchById = async (id: number) => {
+    try {
+        const response = await axios.get(`${apiUrl}/matches/${id}`,);
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching match data by ID:", error);
+        throw error;
+    }
+}

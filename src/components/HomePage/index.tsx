@@ -30,30 +30,29 @@ export const HomePage: React.FC = () => {
     <div className="flex flex-col items-center bg-gray-100 min-h-[95vh] p-4">
       <div className="mb-6">
         <img
-          src="https://crests.football-data.org/176319.png"
+          src="https://crests.football-data.org/1769.png"
           alt="Escudo do Palmeiras"
           className="w-40 h-40"
         />
       </div>
-
       <h1 className="text-center text-3xl font-bold mb-4">
         Central do{" "}
-        {/* <span className="text-green-600">Palmeiras</span>, o MAIOR CAMPEÃO DO{" "}
+        <span className="text-green-600">Palmeiras</span>, o MAIOR CAMPEÃO DO{" "}
         <span className="text-green-500 bg-yellow-400 px-1 rounded">
           BRASIL!
-        </span> */}
+        </span>
       </h1>
-
       <p className="text-center text-gray-700 mb-6">
         Acompanhe as informações de partidas, elenco e competições do verdão,
         tudo em um único site só.
       </p>
-
-      <button className="bg-gray-100 border border-green-600 text-green-700 px-6 py-2 rounded shadow hover:bg-green-100 transition mb-8">
+      <button 
+        className="bg-gray-100 border cursor-pointer my-4 border-green-600 text-green-700 px-6 py-2 rounded shadow hover:bg-green-100 transition mb-8"
+        onClick={() => window.location.href = "/partidas/ultima"}
+        >
         Resultado da última partida
       </button>
-
-      <div className="grid grid-cols-1 gap-4 w-full max-w-6xl my-16 px-4 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="grid grid-cols-1 gap-4 w-full max-w-6xl my-4 px-4 sm:grid-cols-2 lg:grid-cols-5">
         {cardData.map((card, index) => (
           <div
             key={index}
@@ -68,7 +67,6 @@ export const HomePage: React.FC = () => {
           </div>
         ))}
       </div>
-
       <div className="flex flex-wrap justify-center items-center gap-4 mb-8">
         <span className="text-green-700 font-bold">SportingBet</span>
           <span className="w-2 h-2 bg-green-700 rounded-full"></span>
@@ -76,7 +74,6 @@ export const HomePage: React.FC = () => {
           <span className="w-2 h-2 bg-green-700 rounded-full"></span>
         <span className="text-green-700 font-bold">UNIASSELVI </span>
       </div>
-
       <footer className="text-center text-gray-600 mt-auto">
         Palmeiras © {currentYear}
       </footer>

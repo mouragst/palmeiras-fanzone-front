@@ -2,6 +2,11 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 
 import Home from '@/pages/Home'
 import LastMatch from '@/pages/LastMatch';
+import MatchDetails from '@/pages/MatchDetails';
+import SquadPage from '@/pages/Squad';
+import MatchesPage from '@/pages/Matches';
+import Competition from '@/pages/Competition';
+import Standing from '@/pages/Standing';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -9,7 +14,12 @@ const AppRoutes: React.FC = () => {
       <Routes>
         <Route path="/" element={<Navigate to="/home" replace />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/match/last" element={<LastMatch />} />
+        <Route path="/elenco" element={<SquadPage />} />
+        <Route path="/partidas/ultima" element={<LastMatch />} />
+        <Route path="/partidas/:id" element={<MatchDetails />} />
+        <Route path="/partidas" element={<MatchesPage />} />
+        <Route path="/competicoes" element={<Competition />} />
+        <Route path="/classificacao" element={<Standing />} />
       </Routes>
     </Router>
   );
